@@ -1,0 +1,77 @@
+Лабораторная работа №1
+Амангельды Димаш 
+Цель: Ознакомление с созданием таблиц и выполнением базовых операций CREATE, SELECT и INSERT в PostgreSQL.
+
+Задание:
+Создайте 4 таблицы в базе данных PostgreSQL с использованием команды CREATE. Каждая таблица должна содержать от 6 до 10 столбцов, представляющих различные типы данных, такие как целые числа, текст, даты, времена и еще 5 типов данных на ваше усмотрение. Назовите таблицы по вашему выбору.
+1.
+CREATE TABLE employees (
+    employee_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    birth_date DATE,
+    hire_date DATE,
+    salary NUMERIC(10, 2),
+    department VARCHAR(50)
+);
+
+2.
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100),
+    price NUMERIC(8, 2),
+    stock_quantity INT,
+    vendor VARCHAR(50),
+    expiration_date DATE
+);
+
+3.
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_name VARCHAR(100),
+    order_date TIMESTAMP,
+    total_amount NUMERIC(10, 2),
+    shipping_address TEXT
+);
+
+4.
+CREATE TABLE movies (
+    movie_id SERIAL PRIMARY KEY,
+    title VARCHAR(100),
+    release_date DATE,
+    genre VARCHAR(50),
+    duration_minutes INT,
+    director VARCHAR(100),
+    rating NUMERIC(3, 1)
+);
+Вставьте данные в одну из созданных таблиц с использованием оператора INSERT. Учтите разные типы данных, представленные в таблице. 
+INSERT INTO employees (f_name, s_name, birth_date, hire_date, salary, department)
+VALUES
+    ('Димаш', 'Амангельды', '1990-05-15', '2020-03-10', 55000.00, 'HR'),
+    ('Бог', 'Горов', '1985-09-20', '2019-06-15', 60000.50, 'IT'),
+    ('Глеб', 'Смаков', '1982-12-02', '2018-01-05', 62000.75, 'Finance');
+В каждой из созданных таблиц выполните следующие операции SELECT: 
+Выберите все записи из одной таблицы. 
+SELECT * FROM products;
+Выберите записи из другой таблицы, где какой-то столбец соответствует определенному значению.
+SELECT * FROM employees WHERE department = 'HR'; 
+Выберите записи из третьей таблицы, где одновременно выполняются два условия с использованием операторов AND или OR.
+SELECT * FROM orders WHERE total_amount > 100 AND customer_name = 'John Smith';
+
+Требования:
+Для создания таблиц используйте правильный синтаксис команды CREATE TABLE.
+Все таблицы должны содержать разнообразные типы данных, как указано в задании.
+Операции SELECT должны быть корректными и возвращать ожидаемые результаты.
+Операции INSERT должны быть выполнены без ошибок и должны содержать разные типы данных.
+
+Критерий оценивания: Оценка будет выставляться на основе следующих критериев:
+Корректность создания таблиц (10 баллов).
+Корректность выполнения операций SELECT (20 баллов).
+Корректность выполнения операций INSERT (20 баллов).
+Разнообразие использованных типов данных (10 баллов).
+Соблюдение синтаксических и структурных правил SQL (10 баллов).
+Читабельность и аккуратность SQL-кода (10 баллов).
+Оформление отчета о выполнении лабораторной работы (20 баллов).
+
+
+Максимальное количество баллов: 100.
